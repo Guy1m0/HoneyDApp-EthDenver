@@ -46,7 +46,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"tests/test.sol": "BallotTest"
+			"tests/BallotTest_test.sol": "BallotTest"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -84,7 +84,7 @@
 				"dweb:/ipfs/QmdkW1tT5iadBvaHMCoskhDGZKnfdg8o1D9CcoQYtdJet7"
 			]
 		},
-		"tests/test.sol": {
+		"tests/BallotTest_test.sol": {
 			"keccak256": "0xd10d2d511611f8a5f6f04151e8b534c4ac159ec184b89ef0db0f2205f8ab1600",
 			"license": "GPL-3.0",
 			"urls": [
