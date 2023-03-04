@@ -1,0 +1,92 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "LastLine",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "note",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_sender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_note",
+						"type": "string"
+					}
+				],
+				"name": "LogTransfer",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/TrustFund.sol": "Logger"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/TrustFund.sol": {
+			"keccak256": "0xb39c1ffd46d8d0cf7d0513c54a2c584340b4552a09bc34332a6d771f6748c8c0",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://51be55cf98c053a57b1cd1fb9ee7ca462a11dd25b0ddd322f3c14f5f4a8c8d5e",
+				"dweb:/ipfs/QmUHhHDviqoymbsWzr4QWZYHk72JWR8KdykrFiCo7f2VrG"
+			]
+		}
+	},
+	"version": 1
+}
