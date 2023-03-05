@@ -80,11 +80,11 @@
 	},
 	"sources": {
 		"contracts/TrustFund.sol": {
-			"keccak256": "0xda1a856f9dbc96de0ff08b6069bb6e6f11accaa65f173e30db1a14b660673f0b",
+			"keccak256": "0xc0f42effb8de8a31353ddd4f00036579892976bbe1e8d70a52017ebdd53fc755",
 			"license": "GPL-3.0",
 			"urls": [
-				"bzz-raw://3c581a80b28b4214c88b5d727a1bb30dd9f16185fb166651bb13b64629ebf933",
-				"dweb:/ipfs/QmRutzmnQoPnrEaEhQdBC7yVWhFK6rJaq3nGu2rF4NtwTc"
+				"bzz-raw://023432c6167843a7fbb19b5c80361257ba842b8e7012029094e4500df8eb6988",
+				"dweb:/ipfs/QmW6bRxggiTKnJwLas5ZTPS8aiswNXFmSjpg7SeUy2kRyS"
 			]
 		},
 		"hardhat/console.sol": {
