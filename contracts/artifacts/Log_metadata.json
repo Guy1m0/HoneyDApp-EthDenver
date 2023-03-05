@@ -91,9 +91,15 @@
 	},
 	"sources": {
 		"contracts/Log.sol": {
-			"keccak256": "0xb38835aa07aeb359473b7662f033800d8f5d579dd37382cf542ee544131c03e3",
+			"keccak256": "0x885c45058db3f84e661d6e9e52390eafa65b7a7c861b6ea658edb540d08cdfd7",
 			"urls": [
-				"bzzr://8ebc1b5814e0bbee0895831c5d5fd1fbf8b5a489f6e540fd73646c69c0897fbc"
+				"bzzr://ad7ccb268a27103628b78d1caeb08114d7360c124f0d0abeb4c273550efd95d1"
+			]
+		},
+		"hardhat/console.sol": {
+			"keccak256": "0x60b0215121bf25612a6739fb2f1ec35f31ee82e4a8216c032c8243d904ab3aa9",
+			"urls": [
+				"bzzr://6e196e80c57c47ff4fbd30ed213d47c7954142c1c49804ef1229b5eb438f947d"
 			]
 		}
 	},

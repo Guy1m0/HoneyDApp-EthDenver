@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.4.22 <0.5;
+pragma solidity >=0.4.20 <0.5;
 import "hardhat/console.sol";
 
 
@@ -20,15 +20,11 @@ contract TrustFund {
   constructor (address _logger) public payable {
     owner = msg.sender;
     name = "contract creator";
-
     minDeposit = 1e17;
     TrustLog = Logger(_logger);
   }
 
   function transferOwner(address _to, string memory _name) public {
-    if (msg.sender != owner){
-      console.log("Not owner");
-    }
     require(msg.sender == owner);
 
     Change change;
@@ -37,9 +33,10 @@ contract TrustFund {
 
     console.log(address(TrustLog));
 
-    if (owner == _to){ //intentionaly typo
+    if (owner == _to){              //just typo?
       owner_history.push(change);
       owner = _to;
+      name = _name;
     }
   }
 
@@ -50,16 +47,15 @@ contract TrustFund {
       TrustLog.LogTransfer(msg.sender,msg.value,"deposit");
     } else {
         //console.log("value:", msg.value);
-      console.log("Not enough");
+      console.log("Not enough msg.value");
       TrustLog.LogTransfer(msg.sender,msg.value,"depositFailed");
     }
   }
 
   function withdraw(uint256 _amount) public {
     if(_amount <= balances[msg.sender]) {
-      bool s = msg.sender.call.value(_amount)("");
-      console.log("Finish transfer?");
-      if(s) {
+      //console.log("Finish transfer?");
+      if(msg.sender.call.value(_amount)("")) {
         balances[msg.sender] -= _amount;
         TrustLog.LogTransfer(msg.sender, _amount, "withdraw");
       } else {
