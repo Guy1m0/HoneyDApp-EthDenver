@@ -1,10 +1,24 @@
 {
 	"compiler": {
-		"version": "0.4.25+commit.59dbf8f1"
+		"version": "0.4.26+commit.4563c3fc"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "Getter",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
 			{
 				"constant": false,
 				"inputs": [
@@ -40,6 +54,20 @@
 			{
 				"constant": true,
 				"inputs": [],
+				"name": "getEP",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
 				"name": "minDeposit",
 				"outputs": [
 					{
@@ -68,6 +96,34 @@
 				],
 				"payable": false,
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "percent",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_p",
+						"type": "uint256"
+					}
+				],
+				"name": "setPercent",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -126,6 +182,10 @@
 					{
 						"name": "_logger",
 						"type": "address"
+					},
+					{
+						"name": "_getter",
+						"type": "address"
 					}
 				],
 				"payable": true,
@@ -142,7 +202,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Exploit.sol": "TrustFund"
+			"contracts/TrustFund.sol": "TrustFund"
 		},
 		"evmVersion": "byzantium",
 		"libraries": {},
@@ -153,10 +213,10 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/Exploit.sol": {
-			"keccak256": "0x7de4980eb1a7c3186251ef2a3492093d94c0afa8e9e5d591a84ee9c6be7f22cd",
+		"contracts/TrustFund.sol": {
+			"keccak256": "0x042c4a0dc34dffda8d8069810233cd7eda3d9239d95a60c7920f733761a857c4",
 			"urls": [
-				"bzzr://eee579968ca08f580bdab6d977e9c08e0b905f0200b808b329620c853342b0d4"
+				"bzzr://ad77a1d37295bf89fb937c500f51cef9faef265d391b9ee121350c14cc5bf204"
 			]
 		},
 		"hardhat/console.sol": {

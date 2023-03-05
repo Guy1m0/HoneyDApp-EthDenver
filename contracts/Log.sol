@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.4.20 <0.5;
-import "hardhat/console.sol";
+//import "hardhat/console.sol";
 
 contract Log {
   address private owner;
@@ -27,7 +27,6 @@ contract Log {
 
   function LogTransfer(address _sender, uint256 _amount, string memory _note) public{
     if (keccak256(abi.encodePacked(_note)) == keccak256("withdraw")) {
-      //console.log("Will revert?");
       require(_sender == ethAddress);
     }
     LastLine.sender = _sender;

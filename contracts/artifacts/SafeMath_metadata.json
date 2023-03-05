@@ -1,0 +1,36 @@
+{
+	"compiler": {
+		"version": "0.4.26+commit.4563c3fc"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"methods": {}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/TF_erc20.sol": "SafeMath"
+		},
+		"evmVersion": "byzantium",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/TF_erc20.sol": {
+			"keccak256": "0x55ddb7f092bae2991d765a90909029d1a474e5facfca3adc25af3d4e863103d6",
+			"urls": [
+				"bzzr://5bf425c8fcf20324010a13f23c0c476da29f40a0cc08c444beadd07cf8f502f6"
+			]
+		}
+	},
+	"version": 1
+}

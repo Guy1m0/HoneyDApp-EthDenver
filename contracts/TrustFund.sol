@@ -1,14 +1,21 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.4.20 <0.5;
 import "hardhat/console.sol";
-
+import "contracts/TF_erc20.sol";
+//import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+//import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract TrustFund {
   Logger public TrustLog;
   string name;
   address owner;
   uint256 public minDeposit;
+  uint256 public percent = 100;
   mapping (address => uint256) balances;
+
+  FundMe public Getter;
+  TF public Token;
+
   
   struct Change {
     address new_owner;
@@ -17,11 +24,17 @@ contract TrustFund {
 
   Change[] public owner_history;
 
-  constructor (address _logger) public payable {
+  constructor (address _logger, address _getter, address _token) public payable {
     owner = msg.sender;
     name = "contract creator";
-    minDeposit = 1e17;
+    minDeposit = 100e18;        // in USD
     TrustLog = Logger(_logger);
+    Getter = FundMe(_getter);
+    Token = TF(_token);
+  }
+
+  function setPercent(uint256 _p) public {
+    percent = _p;
   }
 
   function transferOwner(address _to, string memory _name) public {
@@ -33,15 +46,31 @@ contract TrustFund {
 
     console.log(address(TrustLog));
 
-    if (owner == _to){              //just typo?
+    if (owner == _to){              
       owner_history.push(change);
       owner = _to;
       name = _name;
     }
   }
 
+  function getEP() public view returns (uint256){
+    return  Getter.getETHPrice() * percent / 1e20; // 1e18 
+  }
+
+  function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {
+    if (b == 0) return (false, 0);
+    return (true, a / b);
+  }
+
   function deposit() public payable returns (bool) {
-    if (msg.value >= minDeposit) {
+    uint256 ep = getEP();
+    //uint256 bp = getBP();
+    //console.log("price ETH: ", ep);
+    //console.log("price BTC: ", bp);
+
+    uint256 deposit_value = msg.value * ep;
+
+    if (deposit_value >= minDeposit) {//100 TF tokens
       balances[msg.sender]+=msg.value;
       console.log("enough msg.value");
       TrustLog.LogTransfer(msg.sender,msg.value,"deposit");
@@ -66,6 +95,12 @@ contract TrustFund {
 
   function checkBalance(address _addr) public view returns (uint256) {
     return balances[_addr];
+  }
+}
+
+contract FundMe {
+  function getETHPrice() public view returns (uint256){
+    return 0;
   }
 }
 
