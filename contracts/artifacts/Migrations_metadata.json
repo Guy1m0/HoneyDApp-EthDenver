@@ -1,88 +1,86 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.4.25+commit.59dbf8f1"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
-				"name": "last_completed_migration",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "owner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
+				"constant": false,
 				"inputs": [
 					{
-						"internalType": "uint256",
-						"name": "completed",
-						"type": "uint256"
-					}
-				],
-				"name": "setCompleted",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
 						"name": "new_address",
 						"type": "address"
 					}
 				],
 				"name": "upgrade",
 				"outputs": [],
+				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "last_completed_migration",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "completed",
+						"type": "uint256"
+					}
+				],
+				"name": "setCompleted",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
 			}
 		],
 		"devdoc": {
-			"kind": "dev",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
 		"compilationTarget": {
 			"contracts/Migrations.sol": "Migrations"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "byzantium",
 		"libraries": {},
-		"metadata": {
-			"bytecodeHash": "ipfs"
-		},
 		"optimizer": {
 			"enabled": false,
 			"runs": 200
@@ -91,11 +89,9 @@
 	},
 	"sources": {
 		"contracts/Migrations.sol": {
-			"keccak256": "0x0c606374ee6fa020a3093c3bc23569afbb857dda0859f63148c278a3695d5715",
-			"license": "GPL-3.0",
+			"keccak256": "0x943a955ed95d923dc7abf2ad356ed54987cd2d2a92d548de283300dc557d6230",
 			"urls": [
-				"bzz-raw://5ba1f820497a80c074baeb4e8214fa7c930fbdb98ab1ec74db4f841eb97b1d48",
-				"dweb:/ipfs/QmRJ7BjpDU9R7JAFiVDcsSm8pv2vwtqpfp7uwPaND1ijCe"
+				"bzzr://e6436dc3b1b8ddb9d8ea572de0e8000d962829fda592c45b53efc5e6bc9cecc4"
 			]
 		}
 	},

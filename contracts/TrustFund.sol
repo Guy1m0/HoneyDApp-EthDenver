@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0
-pragma solidity >=0.6.0 <0.7.0;
+pragma solidity >=0.4.22 <0.5;
 import "hardhat/console.sol";
 
 
@@ -57,7 +57,7 @@ contract TrustFund {
 
   function withdraw(uint256 _amount) public {
     if(_amount <= balances[msg.sender]) {
-      (bool s, ) = msg.sender.call{value: _amount}("");
+      bool s = msg.sender.call.value(_amount)("");
       console.log("Finish transfer?");
       if(s) {
         balances[msg.sender] -= _amount;

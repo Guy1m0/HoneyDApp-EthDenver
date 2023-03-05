@@ -1,95 +1,88 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.4.25+commit.59dbf8f1"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"inputs": [],
-				"name": "LastLine",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "sender",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "amount",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "note",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
+				"constant": false,
 				"inputs": [
 					{
-						"internalType": "address",
 						"name": "_sender",
 						"type": "address"
 					},
 					{
-						"internalType": "uint256",
 						"name": "_amount",
 						"type": "uint256"
 					},
 					{
-						"internalType": "string",
 						"name": "_note",
 						"type": "string"
 					}
 				],
 				"name": "LogTransfer",
 				"outputs": [],
+				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
+				"constant": false,
 				"inputs": [
 					{
-						"internalType": "address",
 						"name": "_addr",
 						"type": "address"
 					}
 				],
 				"name": "changeEthAddress",
 				"outputs": [],
+				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "LastLine",
+				"outputs": [
+					{
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"name": "note",
+						"type": "string"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
 			}
 		],
 		"devdoc": {
-			"kind": "dev",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
 		"compilationTarget": {
 			"contracts/Log.sol": "Log"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "byzantium",
 		"libraries": {},
-		"metadata": {
-			"bytecodeHash": "ipfs"
-		},
 		"optimizer": {
 			"enabled": false,
 			"runs": 200
@@ -98,11 +91,9 @@
 	},
 	"sources": {
 		"contracts/Log.sol": {
-			"keccak256": "0x144b3e862deffa3b32b4cfcf51e706aa717dc6e492887f4b0c3f454e5760a1dd",
-			"license": "GPL-3.0",
+			"keccak256": "0xb38835aa07aeb359473b7662f033800d8f5d579dd37382cf542ee544131c03e3",
 			"urls": [
-				"bzz-raw://c9c50f0898037ea3d1a92b307b3c555715cbe7c0bec08b6615f550fcfef24e6e",
-				"dweb:/ipfs/QmNh8HKQnCbQZxbwXDnkvDRu9JhELCYUoNxZK4fwtseyWA"
+				"bzzr://8ebc1b5814e0bbee0895831c5d5fd1fbf8b5a489f6e540fd73646c69c0897fbc"
 			]
 		}
 	},

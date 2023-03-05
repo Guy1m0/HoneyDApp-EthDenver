@@ -1,38 +1,60 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.4.25+commit.59dbf8f1"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
+				"constant": false,
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_logger",
+						"name": "_to",
 						"type": "address"
+					},
+					{
+						"name": "_name",
+						"type": "string"
 					}
 				],
-				"stateMutability": "payable",
-				"type": "constructor"
+				"name": "transferOwner",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "TrustLog",
-				"outputs": [
+				"constant": false,
+				"inputs": [
 					{
-						"internalType": "contract Logger",
-						"name": "",
-						"type": "address"
+						"name": "_amount",
+						"type": "uint256"
 					}
 				],
+				"name": "withdraw",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "minDeposit",
+				"outputs": [
+					{
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
+				"constant": true,
 				"inputs": [
 					{
-						"internalType": "address",
 						"name": "_addr",
 						"type": "address"
 					}
@@ -40,44 +62,18 @@
 				"name": "checkBalance",
 				"outputs": [
 					{
-						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
+				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
-				"inputs": [],
-				"name": "deposit",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "minDeposit",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
+				"constant": true,
 				"inputs": [
 					{
-						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
@@ -85,71 +81,71 @@
 				"name": "owner_history",
 				"outputs": [
 					{
-						"internalType": "address",
 						"name": "new_owner",
 						"type": "address"
 					},
 					{
-						"internalType": "string",
 						"name": "name",
 						"type": "string"
 					}
 				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [],
+				"name": "deposit",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": true,
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"constant": true,
+				"inputs": [],
+				"name": "TrustLog",
+				"outputs": [
+					{
+						"name": "",
+						"type": "address"
+					}
+				],
+				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "_to",
+						"name": "_logger",
 						"type": "address"
-					},
-					{
-						"internalType": "string",
-						"name": "_name",
-						"type": "string"
 					}
 				],
-				"name": "transferOwner",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_amount",
-						"type": "uint256"
-					}
-				],
-				"name": "withdraw",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
+				"payable": true,
+				"stateMutability": "payable",
+				"type": "constructor"
 			}
 		],
 		"devdoc": {
-			"kind": "dev",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/TrustFund.sol": "TrustFund"
+			"contracts/Exploit.sol": "TrustFund"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "byzantium",
 		"libraries": {},
-		"metadata": {
-			"bytecodeHash": "ipfs"
-		},
 		"optimizer": {
 			"enabled": false,
 			"runs": 200
@@ -157,20 +153,16 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/TrustFund.sol": {
-			"keccak256": "0xc0f42effb8de8a31353ddd4f00036579892976bbe1e8d70a52017ebdd53fc755",
-			"license": "GPL-3.0",
+		"contracts/Exploit.sol": {
+			"keccak256": "0xd09d9bf62e3acf397012930ce7a490457df315c217d6a78093525833dfb47d5a",
 			"urls": [
-				"bzz-raw://023432c6167843a7fbb19b5c80361257ba842b8e7012029094e4500df8eb6988",
-				"dweb:/ipfs/QmW6bRxggiTKnJwLas5ZTPS8aiswNXFmSjpg7SeUy2kRyS"
+				"bzzr://9cbee9fc398e648a0401ac835eef6b0cc23a3d7f4ed82dfac793b33368143d0a"
 			]
 		},
 		"hardhat/console.sol": {
 			"keccak256": "0x60b0215121bf25612a6739fb2f1ec35f31ee82e4a8216c032c8243d904ab3aa9",
-			"license": "MIT",
 			"urls": [
-				"bzz-raw://6e29880d33dd479bb046ba306993d26ccb779a4b1d94a046cb3567f22948bb4d",
-				"dweb:/ipfs/QmfTY1qzPt5C63Wc7y6JqfZr5899NRvXYdCpyLzR5FXQic"
+				"bzzr://6e196e80c57c47ff4fbd30ed213d47c7954142c1c49804ef1229b5eb438f947d"
 			]
 		}
 	},
