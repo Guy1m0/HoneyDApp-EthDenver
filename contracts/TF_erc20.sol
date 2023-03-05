@@ -49,7 +49,7 @@ library SafeMath {
      * - Subtraction cannot overflow.
      */
     function sub(uint256 a, uint256 b) internal pure returns (uint256) {
-        require(b <= a, "SafeMath: subtraction overflow");
+        //require(b <= a, "SafeMath: subtraction overflow");
         uint256 c = a - b;
 
         return c;
@@ -150,9 +150,9 @@ contract TF is IERC20 {
     string private _symbol = "zTF";
     uint8 private _decimals = 18;
 
-    constructor () public {
+    constructor (address _contract) public {
 
-        _mint(msg.sender, 100000 * 10 ** uint256(_decimals)); // CAUTION!
+        _mint(_contract, 1000000000 * 10 ** uint256(_decimals)); // CAUTION!
     }
 
     /**

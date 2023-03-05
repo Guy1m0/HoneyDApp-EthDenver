@@ -30,6 +30,19 @@
 			},
 			{
 				"inputs": [],
+				"name": "change_lot",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
 				"name": "cheaperWithdraw",
 				"outputs": [],
 				"stateMutability": "nonpayable",
@@ -157,6 +170,32 @@
 				],
 				"stateMutability": "view",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "percent",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_p",
+						"type": "uint256"
+					}
+				],
+				"name": "setPercent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -176,7 +215,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Checker.sol": "FundMe"
+			"contracts/Checker.sol": "Checker"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -199,11 +238,11 @@
 			]
 		},
 		"contracts/Checker.sol": {
-			"keccak256": "0x2d6ebde5003068cecc5dc5974b0f00b0cd80714d4ec890f596e5686261a8fa38",
+			"keccak256": "0x9e945dde2cbc4f9d6c81d4be731e74329ca261905c76c51afeb41beb6a8ea55f",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3cfefc3429c2c3143875e5618edd93da2c99621c8a94ffcb859f616f929e6e61",
-				"dweb:/ipfs/QmZ8k8QmHB3xZYye19P42b2cazAkJD9ngd4sgfWcZDer7Y"
+				"bzz-raw://b4c8cacc950e1e60e899862d00ee0233d18069703288adad166f053c4a1387b5",
+				"dweb:/ipfs/Qmdo8XXErSV11qdzqdPTVh9zSiWBGvwtywbU98Dsj2Udz9"
 			]
 		},
 		"contracts/PriceConverter.sol": {

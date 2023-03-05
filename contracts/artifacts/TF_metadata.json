@@ -254,7 +254,12 @@
 				"type": "function"
 			},
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"name": "_contract",
+						"type": "address"
+					}
+				],
 				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "constructor"
@@ -359,9 +364,9 @@
 	},
 	"sources": {
 		"contracts/TF_erc20.sol": {
-			"keccak256": "0x55ddb7f092bae2991d765a90909029d1a474e5facfca3adc25af3d4e863103d6",
+			"keccak256": "0xd07642835d16081d732d6aa1bb682484dfc22f10cdf560a05f25d71666536360",
 			"urls": [
-				"bzzr://5bf425c8fcf20324010a13f23c0c476da29f40a0cc08c444beadd07cf8f502f6"
+				"bzzr://0f764f8ba43e4e521c632a24445c1b73b5498430b797392108b3b31765a9783d"
 			]
 		}
 	},

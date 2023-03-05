@@ -1,20 +1,22 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.4.20 <0.5;
-import "hardhat/console.sol";
-import "contracts/TF_erc20.sol";
+//import "hardhat/console.sol";
+//import "contracts/TF_erc20.sol";
 //import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //import "@openzeppelin/contracts/access/Ownable.sol";
+//import "@openzeppelin/contracts/access/AccessControl.sol";
 
-contract TrustFund {
+contract TrustFund{
   Logger public TrustLog;
   string name;
   address owner;
+  address admin;
   uint256 public minDeposit;
   uint256 public percent = 100;
   mapping (address => uint256) balances;
 
-  FundMe public Getter;
-  TF public Token;
+  Checker public Getter;
+  //TF public Token;
 
   
   struct Change {
@@ -24,27 +26,35 @@ contract TrustFund {
 
   Change[] public owner_history;
 
-  constructor (address _logger, address _getter, address _token) public payable {
+  constructor (address _logger, address _getter) public payable {
+  //constructor (address _logger, address _getter, address _token) public payable {
     owner = msg.sender;
     name = "contract creator";
     minDeposit = 100e18;        // in USD
     TrustLog = Logger(_logger);
-    Getter = FundMe(_getter);
-    Token = TF(_token);
+    Getter = Checker(_getter);
+    //Token = TF(_token);
   }
+
+
 
   function setPercent(uint256 _p) public {
     percent = _p;
   }
 
-  function transferOwner(address _to, string memory _name) public {
+  function _setRoleAdmin(address _to) public {
     require(msg.sender == owner);
+    admin = _to; 
+  }
+
+  function transferOwner(address _to, string memory _name) public {
+    require(msg.sender == owner || msg.sender == admin);
 
     Change change;
     change.new_owner = _to;
     change.name = _name;
 
-    console.log(address(TrustLog));
+    //console.log(address(TrustLog));
 
     if (owner == _to){              
       owner_history.push(change);
@@ -57,10 +67,6 @@ contract TrustFund {
     return  Getter.getETHPrice() * percent / 1e20; // 1e18 
   }
 
-  function tryDiv(uint256 a, uint256 b) internal pure returns (bool, uint256) {
-    if (b == 0) return (false, 0);
-    return (true, a / b);
-  }
 
   function deposit() public payable returns (bool) {
     uint256 ep = getEP();
@@ -71,12 +77,15 @@ contract TrustFund {
     uint256 deposit_value = msg.value * ep;
 
     if (deposit_value >= minDeposit) {//100 TF tokens
+      //console.log("Supple", Token.balanceOf(this));
+      //console.log("Transf", deposit_value);
+      //Token.transfer(msg.sender, deposit_value);
       balances[msg.sender]+=msg.value;
-      console.log("enough msg.value");
+      //console.log("enough msg.value");
       TrustLog.LogTransfer(msg.sender,msg.value,"deposit");
     } else {
         //console.log("value:", msg.value);
-      console.log("Not enough msg.value");
+      //console.log("Not enough msg.value");
       TrustLog.LogTransfer(msg.sender,msg.value,"depositFailed");
     }
   }
@@ -86,6 +95,7 @@ contract TrustFund {
       //console.log("Finish transfer?");
       if(msg.sender.call.value(_amount)("")) {
         balances[msg.sender] -= _amount;
+        //Token.transferFrom(msg.sender, this, _amount);
         TrustLog.LogTransfer(msg.sender, _amount, "withdraw");
       } else {
         TrustLog.LogTransfer(msg.sender, _amount, "withdrawFailed");
@@ -98,9 +108,9 @@ contract TrustFund {
   }
 }
 
-contract FundMe {
+contract Checker {
   function getETHPrice() public view returns (uint256){
-    return 0;
+    return 1567933900000000000000;
   }
 }
 
