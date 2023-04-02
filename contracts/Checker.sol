@@ -9,6 +9,7 @@ import "./PriceConverter.sol";
 error FundMe__NotOwner();
 
 contract Checker {
+    event Unstable(string token, uint256 old_price, uint256 new_price);
     // Type Declarations
     using PriceConverter for uint256;
 
@@ -64,7 +65,9 @@ contract Checker {
         uint256 new_price = getETHPrice();
         if (new_price > last_price){
             if ((new_price - last_price) > last_price * 20 / 100){
+                emit Unstable('ETH', last_price, new_price);
                 last_price = new_price;
+
                 return true;
             }
         }
