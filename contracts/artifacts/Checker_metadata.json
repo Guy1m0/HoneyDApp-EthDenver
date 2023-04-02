@@ -11,11 +11,6 @@
 				"type": "constructor"
 			},
 			{
-				"inputs": [],
-				"name": "FundMe__NotOwner",
-				"type": "error"
-			},
-			{
 				"anonymous": false,
 				"inputs": [
 					{
@@ -42,19 +37,6 @@
 			},
 			{
 				"inputs": [],
-				"name": "MINIMUM_USD",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
 				"name": "change_lot",
 				"outputs": [
 					{
@@ -64,39 +46,6 @@
 					}
 				],
 				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "cheaperWithdraw",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "fund",
-				"outputs": [],
-				"stateMutability": "payable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "fundingAddress",
-						"type": "address"
-					}
-				],
-				"name": "getAddressToAmountFunded",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -126,38 +75,6 @@
 				"type": "function"
 			},
 			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "index",
-						"type": "uint256"
-					}
-				],
-				"name": "getFunder",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getOwner",
-				"outputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
 				"inputs": [],
 				"name": "getPriceFeed",
 				"outputs": [
@@ -173,19 +90,6 @@
 			{
 				"inputs": [],
 				"name": "getUSDCPrice",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getVersion",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -221,6 +125,19 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "price",
+						"type": "uint256"
+					}
+				],
+				"name": "setPrice",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -230,11 +147,7 @@
 		},
 		"userdoc": {
 			"kind": "user",
-			"methods": {
-				"fund()": {
-					"notice": "Funds our contract based on the ETH/USD price"
-				}
-			},
+			"methods": {},
 			"version": 1
 		}
 	},
@@ -263,11 +176,11 @@
 			]
 		},
 		"contracts/Checker.sol": {
-			"keccak256": "0xee735483d0281df2a876fe5ce96b3401aaebf7269bc38f72519b5f55d5ad34b3",
+			"keccak256": "0x038f49ae9066b65c3c1210cb9b974937b1d730805acf1e1a98b9aefdd2144e84",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://05a85bfc3d3d5f3c8594eebbc889d3861ed18686f279cbd6995a7cfc453fe51d",
-				"dweb:/ipfs/Qmf9HN3yDqzKBmdy5Cox2BuC8nLW7FRoHWn1tDZjeQ1JJd"
+				"bzz-raw://6fc0a40f6491cea8f029208cecc6eb58a0ccd2816039426ba1855b85eee6ff34",
+				"dweb:/ipfs/QmcNRKmaJrkHhZ1TpT1AsV2a3ngHPgsRmHYCwZDBfPqZUq"
 			]
 		},
 		"contracts/PriceConverter.sol": {

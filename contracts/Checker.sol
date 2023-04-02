@@ -14,10 +14,10 @@ contract Checker {
     using PriceConverter for uint256;
 
     // State variables
-    uint256 public constant MINIMUM_USD = 10 * 10**18;
-    address private immutable i_owner;
-    address[] private s_funders;
-    mapping(address => uint256) private s_addressToAmountFunded;
+    //uint256 public constant MINIMUM_USD = 10 * 10**18;
+    address private immutable owner;
+    //address[] private s_funders;
+    //mapping(address => uint256) private s_addressToAmountFunded;
     AggregatorV3Interface private s_priceFeed;
     AggregatorV3Interface private USDC_priceFeed;
     AggregatorV3Interface private BTC_priceFeed;
@@ -26,13 +26,6 @@ contract Checker {
     uint256 private last_price;
 
     // Events (we have none!)
-
-    // Modifiers
-    modifier onlyOwner() {
-        // require(msg.sender == i_owner);
-        if (msg.sender != i_owner) revert FundMe__NotOwner();
-        _;
-    }
 
     constructor() {
         // chain link price feed address: 
@@ -43,20 +36,10 @@ contract Checker {
         s_priceFeed = AggregatorV3Interface(ETH_USD_addr);
         USDC_priceFeed = AggregatorV3Interface(USDC_USD_addr);
         BTC_priceFeed = AggregatorV3Interface(BTC_USD_addr);
-        i_owner = msg.sender;
-        last_price = getETHPrice();
+        owner = msg.sender;
+        //last_price = getETHPrice();
     }
 
-    /// @notice Funds our contract based on the ETH/USD price
-    function fund() public payable {
-        require(
-            msg.value.getConversionRate(s_priceFeed) >= MINIMUM_USD,
-            "You need to spend more ETH!"
-        );
-        // require(PriceConverter.getConversionRate(msg.value) >= MINIMUM_USD, "You need to spend more ETH!");
-        s_addressToAmountFunded[msg.sender] += msg.value;
-        s_funders.push(msg.sender);
-    }
     function abs(int x) private pure returns (int) {
         return x >= 0 ? x : -x;
     }
@@ -67,7 +50,6 @@ contract Checker {
             if ((new_price - last_price) > last_price * 20 / 100){
                 emit Unstable('ETH', last_price, new_price);
                 last_price = new_price;
-
                 return true;
             }
         }
@@ -79,6 +61,12 @@ contract Checker {
         }
         last_price = new_price;
         return false;
+    }
+    
+    function setPrice(uint256 price) public {
+        require(msg.sender == owner);
+        last_price = price;
+        //last_price = getETHPrice();
     }
 
     function setPercent(uint256 _p) public {
@@ -101,43 +89,6 @@ contract Checker {
         (, int256 answer, , , ) = BTC_priceFeed.latestRoundData();
         // ETH/USD rate in 18 digit
         return uint256(answer * 10000000000);
-    }
-
-    function cheaperWithdraw() public onlyOwner {
-        address[] memory funders = s_funders;
-        // mappings can't be in memory, sorry!
-        for (
-            uint256 funderIndex = 0;
-            funderIndex < funders.length;
-            funderIndex++
-        ) {
-            address funder = funders[funderIndex];
-            s_addressToAmountFunded[funder] = 0;
-        }
-        s_funders = new address[](0);
-        // payable(msg.sender).transfer(address(this).balance);
-        (bool success, ) = i_owner.call{value: address(this).balance}("");
-        require(success);
-    }
-
-    function getAddressToAmountFunded(address fundingAddress)
-        public
-        view
-        returns (uint256)
-    {
-        return s_addressToAmountFunded[fundingAddress];
-    }
-
-    function getVersion() public view returns (uint256) {
-        return s_priceFeed.version();
-    }
-
-    function getFunder(uint256 index) public view returns (address) {
-        return s_funders[index];
-    }
-
-    function getOwner() public view returns (address) {
-        return i_owner;
     }
 
     function getPriceFeed() public view returns (AggregatorV3Interface) {
