@@ -52,6 +52,20 @@
 				"type": "function"
 			},
 			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_to",
+						"type": "address"
+					}
+				],
+				"name": "_setRoleAdmin",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"constant": true,
 				"inputs": [],
 				"name": "getEP",
@@ -96,6 +110,20 @@
 				],
 				"payable": false,
 				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"constant": false,
+				"inputs": [
+					{
+						"name": "_to",
+						"type": "address"
+					}
+				],
+				"name": "reset",
+				"outputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
 				"type": "function"
 			},
 			{
@@ -214,9 +242,9 @@
 	},
 	"sources": {
 		"contracts/TrustFund.sol": {
-			"keccak256": "0x042c4a0dc34dffda8d8069810233cd7eda3d9239d95a60c7920f733761a857c4",
+			"keccak256": "0xc3a0e30bc855658dc69c5932cab526e94acb2cd7db246a24486e980302d61372",
 			"urls": [
-				"bzzr://ad77a1d37295bf89fb937c500f51cef9faef265d391b9ee121350c14cc5bf204"
+				"bzzr://7506ed5aed0557f834dddf3d76155bb455c5222d6990b07855e40f32efac7966"
 			]
 		},
 		"hardhat/console.sol": {

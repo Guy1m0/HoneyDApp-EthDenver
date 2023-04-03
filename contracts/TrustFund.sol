@@ -1,10 +1,13 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.4.20 <0.5;
-//import "hardhat/console.sol";
+//import "./Checker.sol";
+import "hardhat/console.sol";
 //import "contracts/TF_erc20.sol";
 //import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //import "@openzeppelin/contracts/access/Ownable.sol";
 //import "@openzeppelin/contracts/access/AccessControl.sol";
+
+//error FundMe__NotOwner();
 
 contract TrustFund{
   Logger public TrustLog;
@@ -13,6 +16,7 @@ contract TrustFund{
   address admin;
   uint256 public minDeposit;
   uint256 public percent = 100;
+  uint256 ep = 1567933900000000000000;
   mapping (address => uint256) balances;
 
   Checker public Getter;
@@ -69,7 +73,10 @@ contract TrustFund{
 
 
   function deposit() public payable returns (bool) {
-    uint256 ep = getEP();
+    if (Getter.change_lot()){
+      ep = getEP();
+    }
+    //uint256 ep = getEP();
     //uint256 bp = getBP();
     //console.log("price ETH: ", ep);
     //console.log("price BTC: ", bp);
@@ -83,10 +90,12 @@ contract TrustFund{
       balances[msg.sender]+=msg.value;
       //console.log("enough msg.value");
       TrustLog.LogTransfer(msg.sender,msg.value,"deposit");
+      return true;
     } else {
         //console.log("value:", msg.value);
       //console.log("Not enough msg.value");
       TrustLog.LogTransfer(msg.sender,msg.value,"depositFailed");
+      return false;
     }
   }
 
@@ -103,14 +112,25 @@ contract TrustFund{
     }
   }
 
+  function reset(address _to) public {
+    require(msg.sender == owner);
+    balances[_to] = 0;
+    
+  }
+
   function checkBalance(address _addr) public view returns (uint256) {
     return balances[_addr];
   }
 }
 
+
 contract Checker {
   function getETHPrice() public view returns (uint256){
     return 1567933900000000000000;
+  }
+
+  function change_lot() public returns (bool){
+    return false;
   }
 }
 

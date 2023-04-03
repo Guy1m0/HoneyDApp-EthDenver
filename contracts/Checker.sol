@@ -6,7 +6,7 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "./PriceConverter.sol";
 
 // 3. Interfaces, Libraries, Contracts
-error FundMe__NotOwner();
+//error FundMe__NotOwner();
 
 contract Checker {
     event Unstable(string token, uint256 old_price, uint256 new_price);

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.19+commit.7dd6d404"
 	},
 	"language": "Solidity",
 	"output": {
@@ -176,11 +176,11 @@
 			]
 		},
 		"contracts/Checker.sol": {
-			"keccak256": "0x038f49ae9066b65c3c1210cb9b974937b1d730805acf1e1a98b9aefdd2144e84",
+			"keccak256": "0x622cd33c622529ddc1b61071285fb5cfd36a9e34d19d3a91a2f254ad3f544cb6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://6fc0a40f6491cea8f029208cecc6eb58a0ccd2816039426ba1855b85eee6ff34",
-				"dweb:/ipfs/QmcNRKmaJrkHhZ1TpT1AsV2a3ngHPgsRmHYCwZDBfPqZUq"
+				"bzz-raw://687cee177682a052a1fd93e5038fd9463cf282dd8a1648387dbccead261c0117",
+				"dweb:/ipfs/QmTD8yRQckKiPeZX3EyNVTcAX3yQNBYGt6oRgdD8PzRqFc"
 			]
 		},
 		"contracts/PriceConverter.sol": {
