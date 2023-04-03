@@ -1,0 +1,175 @@
+service: defender-serverless-test-project
+configValidationMode: error
+frameworkVersion: '3'
+provider:
+  name: defender
+  stage: ${opt:stage, 'dev'}
+  stackName: mystack
+  ssot: false
+custom:
+  config: ${file(secrets.${self:provider.stage}.yml)}
+defender:
+  key: ${self:custom.config.keys.api}
+  secret: ${self:custom.config.keys.secret}
+functions:
+  change-to-honey-pot-mode:
+    name: Change to HoneyPot Mode
+    relayer: ${self:resources.Resources.relayers.mode-relayer}
+    trigger:
+      type: sentinel
+    paused: false
+    path: <PATH_TO_YOUR_AUTOTASK_CODE_HERE>
+resources:
+  Resources:
+    policies:
+      policy-2U: {}
+      policy-aa: {}
+    contracts:
+      real-log:
+        name: Real Log
+        address: '0x04A9eD0d134e894fEcD01E45e6696a55187Dd01A'
+        network: goerli
+      fake-log:
+        name: Fake Log
+        address: '0x1A477E07f6e657dfbf9d79498b05BFD559dab372'
+        network: goerli
+      price-checker:
+        name: Price Checker
+        address: '0x92d6B179A88D08984067e36BB47E66D04A017967'
+        network: goerli
+      exploit-by-a-6-b-1:
+        name: Exploit by A6b1
+        address: '0x93Ac30A70B7aBDa1FE00e6379cB36A4ae4f19082'
+        network: goerli
+      trust-fund:
+        name: TrustFund
+        address: '0xB1bfA3658c2b4a7541Ad3DDD3Ff77DDDDbD060d5'
+        network: goerli
+    relayers:
+      mode-relayer:
+        name: Mode Relayer
+        network: goerli
+        min-balance: '100000000000000000'
+      my-relayer:
+        name: My Relayer
+        network: goerli
+        min-balance: '100000000000000000'
+    notifications:
+      jc-def-bot:
+        type: telegram
+        name: JC_Def_Bot
+        config:
+          chat-id: '-1001898535462'
+          bot-token: 5846896828:AAEXUG9T5DQ1sPtytL5wTmd2xEO-TFr0xaE
+        paused: false
+      altert:
+        type: email
+        name: Altert
+        config:
+          emails:
+            - zjc.kingdom@gmail.com
+        paused: false
+    categories:
+      low-severity:
+        name: Low Severity
+        description: A default category to be assigned for low risk monitors.
+      medium-severity:
+        name: Medium Severity
+        description: A default category to be assigned for medium risk monitors.
+      high-severity:
+        name: High Severity
+        description: A default category to be assigned for high risk monitors.
+    sentinels:
+      price-monitor:
+        name: Price Monitor
+        type: BLOCK
+        network: goerli
+        addresses:
+          - '0x92d6B179A88D08984067e36BB47E66D04A017967'
+        paused: false
+        confirm-level: 1
+        notify-config:
+          timeout: 0
+          message: |-
+            **Defender Sentinel {{ sentinel.name }} Triggered**
+
+            **Network**
+
+            {{ sentinel.network }}
+
+            **Block Hash**
+
+            {{ blockHash }}
+
+            **Transaction Hash**
+
+            {{ transaction.transactionHash }}
+
+            **Explorer Link**
+
+            {{ transaction.link }}
+
+            {{ matchReasonsFormatted }}
+          message-subject: 'Defender Sentinel: Price Monitor triggered'
+          channels:
+            - ${self:resources.Resources.notifications.jc-def-bot}
+        conditions:
+          event:
+            - expression: null
+              signature: Unstable(string,uint256,uint256)
+      catch-high-gas:
+        name: Catch High Gas
+        type: BLOCK
+        network: goerli
+        addresses:
+          - '0xe97fb421f3d38bF303dD3395D53CB37293fF93dd'
+        paused: true
+        autotask-condition: ${self:functions.change-to-honey-pot-mode}
+        confirm-level: 1
+        notify-config:
+          timeout: 0
+          message: |-
+            **Defender Sentinel {{ sentinel.name }} Triggered**
+
+            **Network**
+
+            {{ sentinel.network }}
+
+            **Block Hash**
+
+            {{ blockHash }}
+
+            **Transaction Hash**
+
+            {{ transaction.transactionHash }}
+
+            **Explorer Link**
+
+            {{ transaction.link }}
+
+            {{ matchReasonsFormatted }}
+          message-subject: 'Defender Sentinel: Catch High Gas triggered'
+          channels:
+            - ${self:resources.Resources.notifications.jc-def-bot}
+        conditions:
+          transaction: status == "success" and gasUsed > 7e6
+      high-transfer-volume-detected-pausing-contract:
+        name: High transfer volume detected - pausing contract
+        type: BLOCK
+        network: goerli
+        addresses:
+          - '0xB4212D0ba35FeC7099F8bec15a5cC7893c1b2439'
+        paused: false
+        confirm-level: 1
+        notify-config:
+          timeout: 0
+          channels:
+            - ${self:resources.Resources.notifications.altert}
+        conditions:
+          event:
+            - expression: value > 2e8
+              signature: Transfer(address,address,uint256)
+    deployment-configs: []
+    block-explorer-api-keys: []
+plugins:
+  - defender-serverless
