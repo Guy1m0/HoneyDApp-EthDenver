@@ -6,38 +6,6 @@
 	"output": {
 		"abi": [
 			{
-				"constant": true,
-				"inputs": [],
-				"name": "Getter",
-				"outputs": [
-					{
-						"name": "",
-						"type": "address"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"name": "_to",
-						"type": "address"
-					},
-					{
-						"name": "_name",
-						"type": "string"
-					}
-				],
-				"name": "transferOwner",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
 				"constant": false,
 				"inputs": [
 					{
@@ -53,132 +21,6 @@
 			},
 			{
 				"constant": false,
-				"inputs": [
-					{
-						"name": "_to",
-						"type": "address"
-					}
-				],
-				"name": "_setRoleAdmin",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "getEP",
-				"outputs": [
-					{
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "minDeposit",
-				"outputs": [
-					{
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "_addr",
-						"type": "address"
-					}
-				],
-				"name": "checkBalance",
-				"outputs": [
-					{
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"name": "_to",
-						"type": "address"
-					}
-				],
-				"name": "reset",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "percent",
-				"outputs": [
-					{
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
-				"inputs": [
-					{
-						"name": "_p",
-						"type": "uint256"
-					}
-				],
-				"name": "setPercent",
-				"outputs": [],
-				"payable": false,
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [
-					{
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"name": "owner_history",
-				"outputs": [
-					{
-						"name": "new_owner",
-						"type": "address"
-					},
-					{
-						"name": "name",
-						"type": "string"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"constant": false,
 				"inputs": [],
 				"name": "deposit",
 				"outputs": [
@@ -190,35 +32,6 @@
 				"payable": true,
 				"stateMutability": "payable",
 				"type": "function"
-			},
-			{
-				"constant": true,
-				"inputs": [],
-				"name": "TrustLog",
-				"outputs": [
-					{
-						"name": "",
-						"type": "address"
-					}
-				],
-				"payable": false,
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"name": "_logger",
-						"type": "address"
-					},
-					{
-						"name": "_getter",
-						"type": "address"
-					}
-				],
-				"payable": true,
-				"stateMutability": "payable",
-				"type": "constructor"
 			}
 		],
 		"devdoc": {
@@ -230,7 +43,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/TrustFund.sol": "TrustFund"
+			"contracts/Exploit.sol": "TrustFund"
 		},
 		"evmVersion": "byzantium",
 		"libraries": {},
@@ -241,10 +54,10 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/TrustFund.sol": {
-			"keccak256": "0xc3a0e30bc855658dc69c5932cab526e94acb2cd7db246a24486e980302d61372",
+		"contracts/Exploit.sol": {
+			"keccak256": "0x5f555cd8b959573b560ef521dc5641545ae5334ce2c04219ac7c886160f5f995",
 			"urls": [
-				"bzzr://7506ed5aed0557f834dddf3d76155bb455c5222d6990b07855e40f32efac7966"
+				"bzzr://9a5f97c31af5bb37eccd9810ad4fd6fd072b2b411d42bfba5ef2a33237e28eb6"
 			]
 		},
 		"hardhat/console.sol": {

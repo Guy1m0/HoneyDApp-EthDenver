@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity >=0.4.20 <0.5;
 //import "./Checker.sol";
-import "hardhat/console.sol";
+//import "hardhat/console.sol";
 //import "contracts/TF_erc20.sol";
 //import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 //import "@openzeppelin/contracts/access/Ownable.sol";

@@ -1,165 +1,52 @@
 {
 	"compiler": {
-		"version": "0.8.19+commit.7dd6d404"
+		"version": "0.4.26+commit.4563c3fc"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
-				"stateMutability": "nonpayable",
-				"type": "constructor"
-			},
-			{
-				"anonymous": false,
-				"inputs": [
-					{
-						"indexed": false,
-						"internalType": "string",
-						"name": "token",
-						"type": "string"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "old_price",
-						"type": "uint256"
-					},
-					{
-						"indexed": false,
-						"internalType": "uint256",
-						"name": "new_price",
-						"type": "uint256"
-					}
-				],
-				"name": "Unstable",
-				"type": "event"
-			},
-			{
-				"inputs": [],
-				"name": "change_lot",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getBTCPrice",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
+				"constant": true,
 				"inputs": [],
 				"name": "getETHPrice",
 				"outputs": [
 					{
-						"internalType": "uint256",
 						"name": "",
 						"type": "uint256"
 					}
 				],
+				"payable": false,
 				"stateMutability": "view",
 				"type": "function"
 			},
 			{
+				"constant": false,
 				"inputs": [],
-				"name": "getPriceFeed",
+				"name": "change_lot",
 				"outputs": [
 					{
-						"internalType": "contract AggregatorV3Interface",
 						"name": "",
-						"type": "address"
+						"type": "bool"
 					}
 				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "getUSDCPrice",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [],
-				"name": "percent",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "_p",
-						"type": "uint256"
-					}
-				],
-				"name": "setPercent",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "uint256",
-						"name": "price",
-						"type": "uint256"
-					}
-				],
-				"name": "setPrice",
-				"outputs": [],
+				"payable": false,
 				"stateMutability": "nonpayable",
 				"type": "function"
 			}
 		],
 		"devdoc": {
-			"kind": "dev",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		},
 		"userdoc": {
-			"kind": "user",
-			"methods": {},
-			"version": 1
+			"methods": {}
 		}
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/Checker.sol": "Checker"
+			"contracts/TrustFund.sol": "Checker"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "byzantium",
 		"libraries": {},
-		"metadata": {
-			"bytecodeHash": "ipfs"
-		},
 		"optimizer": {
 			"enabled": false,
 			"runs": 200
@@ -167,28 +54,10 @@
 		"remappings": []
 	},
 	"sources": {
-		"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
-			"keccak256": "0x6e6e4b0835904509406b070ee173b5bc8f677c19421b76be38aea3b1b3d30846",
-			"license": "MIT",
+		"contracts/TrustFund.sol": {
+			"keccak256": "0x0acd4f0ec34eade0756f1e5253a77613548fe4d9b3127565e91d9382beff434a",
 			"urls": [
-				"bzz-raw://b3beaa37ee61e4ab615e250fbf01601ae481de843fd0ef55e6b44fd9d5fff8a7",
-				"dweb:/ipfs/QmeZUVwd26LzK4Mfp8Zba5JbQNkZFfTzFu1A6FVMMZDg9c"
-			]
-		},
-		"contracts/Checker.sol": {
-			"keccak256": "0x622cd33c622529ddc1b61071285fb5cfd36a9e34d19d3a91a2f254ad3f544cb6",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://687cee177682a052a1fd93e5038fd9463cf282dd8a1648387dbccead261c0117",
-				"dweb:/ipfs/QmTD8yRQckKiPeZX3EyNVTcAX3yQNBYGt6oRgdD8PzRqFc"
-			]
-		},
-		"contracts/PriceConverter.sol": {
-			"keccak256": "0x3cd5c99f9675dc186b36aac46f498b3a1709a38645582136634dec2c4ff9381a",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://54960e6626edf2e9c684f1bbd42982b5b50f9bc0b314fd11a770f50e2ab54cc7",
-				"dweb:/ipfs/QmU48jktvDkNrV3HF3Nrw1VN9wmJThfDTeuWwYUjwFCWrx"
+				"bzzr://8159992605936afe1e5a50244481d9afa43f2bc334a18879cbf52270f2dc0ef5"
 			]
 		}
 	},
